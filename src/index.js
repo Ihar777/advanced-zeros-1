@@ -1,5 +1,4 @@
-module.exports = function getZerosCount(number, base) 
-{ 
+module.exports = function getZerosCount(number, base) { 
     if(base == 10) {
         let endzerocount = 0;
   
@@ -10,29 +9,31 @@ module.exports = function getZerosCount(number, base)
   }
   
 return endzerocount;
-    } 
-    let srt_number = new String(number);
+    } else {
+    var str_number = number.toString();
 
-    let len = srt_number.length;
-    let pow = 1; 
-    let num = 0; 
-    let zeros = 0;
-
-    for (let i = len - 1; i >= 0; i--) 
-    { 
-       
-        // if (Number(srt_number[i]) >= base) 
-        // { 
-        //     alert("Invalid Number"); 
-        //     return -1; 
-        // } 
+    var len = str_number.length;
+    var pow = 1; // Initialize power of base 
+    var num = 0; // Initialize result 
+    var zeros = 0;
   
-        num += Number(srt_number[i]) * pow; 
+    for (var i = len - 1; i >= 0; i--) 
+    { 
+        if (Number(str_number[i]) >= base) 
+        { 
+            alert("Invalid Number"); 
+            return -1; 
+        } 
+
+         num += str_number[i] * pow;
         pow = pow * base; 
     } 
+
           while(num/base > 1) {
-            num = (num - num%base)/base;
+            num = Math.floor(num/base);
             zeros += num;
           }
+        
     return zeros;
 } 
+}
