@@ -1,6 +1,6 @@
 module.exports = function getZerosCount(number, base) 
 { 
-    if(base%10 == 0) {
+    if(base == 10) {
         let endzerocount = 0;
   
   let i = 1;
